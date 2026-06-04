@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+  name: banking-ai-assistant
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+    - host: assistant.local
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: banking-ai-assistant
+
+                port:
+                  number: 80

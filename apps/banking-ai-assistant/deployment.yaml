@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banking-ai-assistant
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: banking-ai-assistant
+
+  template:
+    metadata:
+      labels:
+        app: banking-ai-assistant
+
+    spec:
+      containers:
+        - name: banking-ai-assistant
+
+          image: banking-ai-assistant:latest
+
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8000
+
+          volumeMounts:
+            - name: checkpoints
+              mountPath: /app/data/checkpoints
+
+      volumes:
+        - name: checkpoints
+          persistentVolumeClaim:
+            claimName: banking-ai-checkpoints-pvc
