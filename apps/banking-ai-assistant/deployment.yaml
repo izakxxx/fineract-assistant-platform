@@ -20,7 +20,7 @@ spec:
             - containerPort: 8000
           envFrom:
             - secretRef:
-              name: banking-ai-secrets
+                name: banking-ai-secrets
           volumeMounts:
             - name: checkpoints
               mountPath: /app/data/checkpoints
