@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: banking-ai-assistant
-          image: ghcr.io/izakxxx/banking-ai-assistant:7ace90f
+          image: ghcr.io/izakxxx/banking-ai-assistant:03deb28
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
